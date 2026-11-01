@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Livewell Nourish — Ancient Wisdom. Modern Nourishment.</title>
+<meta name="description" content="Talbina Royale — traditional barley nourishment, rebuilt for the pace of now. Barley, almonds, pistachios. 15 sachets. No preservatives." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#FFF8F2;
+    --sand:#F7F3E9;
+    --gold:#D6B15E;
+    --gold-soft:#E8D2A0;
+    --emerald:#0B3D2E;
+    --emerald-2:#082A1F;
+    --ink:#1F211F;
+    --ink-soft:#5A5C57;
+    --line:#DED6C6;
+    --line2:rgba(31,33,31,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:auto}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif;
+    font-weight:400;font-size:16px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .serif{font-family:"Cormorant Garamond",Georgia,serif;font-weight:400}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--gold);color:var(--emerald)}
+
+  /* ---------- PRELOADER ---------- */
+  #pre{position:fixed;inset:0;z-index:9999;background:var(--emerald);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.6rem;transition:opacity .9s ease,visibility .9s}
+  #pre.gone{opacity:0;visibility:hidden}
+  #pre .pl{font-family:"Cormorant Garamond",serif;font-size:clamp(28px,4vw,44px);letter-spacing:.34em;color:var(--paper);text-transform:uppercase;opacity:0;animation:plIn 1.2s .15s forwards}
+  #pre .bar{width:min(240px,40vw);height:1px;background:rgba(255,248,242,.22);position:relative;overflow:hidden}
+  #pre .bar i{position:absolute;inset:0;background:var(--gold);transform-origin:left;transform:scaleX(0);animation:plBar 1.7s .2s cubic-bezier(.65,0,.35,1) forwards}
+  @keyframes plIn{to{opacity:1}}
+  @keyframes plBar{to{transform:scaleX(1)}}
+
+  /* ---------- NAV ---------- */
+  header{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;
+    padding:1.35rem 3.4vw;transition:background .45s,box-shadow .45s,padding .45s;mix-blend-mode:normal}
+  header.solid{background:rgba(255,248,242,.94);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line2);padding:1rem 3.4vw}
+  .logo{font-family:"Cormorant Garamond",serif;font-size:22px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+  header.dark .logo{color:var(--paper)}
+  .logo b{color:var(--gold);font-weight:500}
+  nav{display:flex;gap:2.1rem;align-items:center}
+  nav a{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);opacity:.78;transition:opacity .25s,color .25s;position:relative}
+  header.dark nav a{color:var(--paper)}
+  nav a:hover{opacity:1}
+  nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.65,0,.35,1)}
+  nav a:hover::after{transform:scaleX(1)}
+  .navcta{border:1px solid var(--gold);color:var(--emerald)!important;padding:.55rem 1.15rem;border-radius:2px;font-size:10.5px!important;opacity:1!important;transition:background .3s,color .3s}
+  header.dark .navcta{color:var(--gold)!important}
+  .navcta:hover{background:var(--gold);color:var(--emerald)!important}
+  .burger{display:none;width:26px;height:16px;position:relative;cursor:pointer}
+  .burger i{position:absolute;left:0;width:100%;height:1px;background:var(--ink);transition:transform .35s,opacity .3s}
+  .burger i:nth-child(1){top:0}.burger i:nth-child(2){top:7px}.burger i:nth-child(3){top:14px}
+
+  /* ---------- S1 HERO ---------- */
+  .hero{position:relative;height:100svh;min-height:640px;overflow:hidden;display:flex;align-items:center}
+  .hero-media{position:absolute;inset:0;will-change:transform;transform-origin:center}
+  .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
+  .hero-media::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(100deg,rgba(255,248,242,.94) 0%,rgba(255,248,242,.80) 34%,rgba(255,248,242,.28) 62%,rgba(255,248,242,.10) 100%)}
+  .hero-inner{position:relative;z-index:3;width:min(1400px,100%);margin:0 auto;padding:0 5.2vw}
+  .kicker{display:inline-flex;align-items:center;gap:.75rem;font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--emerald);font-weight:500;margin-bottom:1.9rem}
+  .kicker .ln{display:inline-block;width:44px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left}
+  .hero h1{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(42px,6.6vw,104px);line-height:.98;letter-spacing:-.025em;color:var(--emerald);max-width:15ch}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero h1 .l{display:block;overflow:hidden}
+  .hero h1 .l span{display:block;transform:translateY(112%)}
+  .hero-sub{max-width:44ch;margin-top:2.2rem;font-size:clamp(14px,1.05vw,17px);color:var(--ink);opacity:.82;line-height:1.7}
+  .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.6rem;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:.7rem;padding:1.02rem 2.05rem;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;font-weight:500;border-radius:2px;transition:background .35s,color .35s,transform .35s cubic-bezier(.65,0,.35,1);border:1px solid transparent;cursor:pointer}
+  .btn-solid{background:var(--emerald);color:var(--paper)}
+  .btn-solid:hover{background:var(--emerald-2);transform:translateY(-2px)}
+  .btn-line{border-color:var(--gold);color:var(--emerald)}
+  .btn-line:hover{background:var(--gold);color:var(--emerald);transform:translateY(-2px)}
+  .btn .ar{transition:transform .35s}
+  .btn:hover .ar{transform:translateX(5px)}
+  .hero-stats{position:absolute;left:5.2vw;bottom:5.5vh;z-index:3;display:flex;gap:2.6rem;flex-wrap:wrap}
+  .hstat{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);opacity:0;transform:translateY(12px)}
+  .hstat b{display:block;font-family:"Cormorant Garamond",serif;font-size:clamp(22px,2.4vw,32px);letter-spacing:0;color:var(--emerald);font-weight:500;margin-bottom:.35rem;text-transform:none}
+  .hero-scroll{position:absolute;right:4.6vw;bottom:5.5vh;z-index:3;display:flex;align-items:center;gap:.7rem;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft)}
+  .hero-scroll .rl{width:1px;height:46px;background:var(--line);position:relative;overflow:hidden}
+  .hero-scroll .rl i{position:absolute;top:-46px;left:0;width:100%;height:46px;background:var(--gold);animation:scrollDot 2.2s cubic-bezier(.65,0,.35,1) infinite}
+  @keyframes scrollDot{0%{top:-46px}60%,100%{top:46px}}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{position:relative}
+  .wrap{width:min(1400px,100%);margin:0 auto;padding:0 5.2vw}
+  .eyebrow{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.5rem;display:block}
+  h2.big{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(30px,4.4vw,64px);line-height:1.04;letter-spacing:-.02em;color:var(--emerald)}
+  .lead{font-size:clamp(14px,1.05vw,17px);color:var(--ink-soft);max-width:56ch;line-height:1.75}
+  .hair{width:100%;height:1px;background:var(--line)}
+
+  /* ---------- S2 THE GRAIN (dark pinned) ---------- */
+  .grain{background:var(--emerald);color:var(--paper);height:180vh;position:relative}
+  .grain-stage{position:sticky;top:0;height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .grain-bg{position:absolute;inset:0;opacity:.16}
+  .grain-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.6)}
+  .grain-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 55%,rgba(214,177,94,.16) 0%,rgba(11,61,46,0) 62%)}
+  .grain-inner{position:relative;z-index:2;text-align:center;padding:0 6vw;max-width:1100px}
+  .gnum{font-family:"Cormorant Garamond",serif;font-size:clamp(90px,17vw,240px);line-height:.82;font-weight:300;color:var(--gold);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+  .gnum sup{font-size:.22em;letter-spacing:.1em;vertical-align:super;color:var(--gold-soft);font-family:"Inter",sans-serif;font-weight:400}
+  .grain-inner h2{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(22px,3vw,42px);line-height:1.2;margin-top:1.4rem;color:var(--paper);letter-spacing:-.01em;max-width:24ch;margin-left:auto;margin-right:auto}
+  .grain-inner p{margin-top:1.4rem;font-size:clamp(13px,1vw,15px);color:rgba(255,248,242,.68);max-width:52ch;margin-left:auto;margin-right:auto;line-height:1.8}
+  .grain-orn{position:absolute;width:min(520px,62vw);height:min(520px,62vw);left:50%;top:50%;transform:translate(-50%,-50%);border:1px solid rgba(214,177,94,.16);border-radius:50%;z-index:1}
+  .grain-orn::before,.grain-orn::after{content:"";position:absolute;inset:0;border:1px solid rgba(214,177,94,.09);border-radius:50%}
+  .grain-orn::before{transform:rotate(45deg) scale(.92);border-radius:0}
+  .grain-orn::after{transform:rotate(22.5deg) scale(.82);border-radius:0}
+
+  /* ---------- S3 BOWL ASSEMBLY (pinned) ---------- */
+  .assemble{background:var(--sand);height:340vh;position:relative}
+  .asm-stage{position:sticky;top:0;height:100svh;display:flex;align-items:center;overflow:hidden}
+  .asm-grid{display:grid;grid-template-columns:1fr 1fr;width:min(1400px,100%);margin:0 auto;padding:0 5.2vw;gap:4vw;align-items:center;height:100%}
+  .asm-copy{position:relative;z-index:3}
+  .asm-copy .step{position:absolute;inset:0;opacity:0;will-change:opacity}
+  .asm-copy .step.on{opacity:1}
+  .asm-copy .step h3{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(26px,3.4vw,48px);line-height:1.08;color:var(--emerald);letter-spacing:-.015em;max-width:16ch}
+  .asm-copy .step .n{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:500;display:block;margin-bottom:1.3rem}
+  .asm-copy .step p{margin-top:1.4rem;font-size:clamp(13px,1vw,15.5px);color:var(--ink-soft);max-width:40ch;line-height:1.8}
+  .asm-visual{position:relative;height:min(74vh,700px);display:flex;align-items:center;justify-content:center}
+  .bowl{position:relative;width:min(430px,34vw);aspect-ratio:1/.62;z-index:2}
+  .bowl-body{position:absolute;inset:0;border-radius:0 0 50% 50% / 0 0 100% 100%;
+    background:linear-gradient(178deg,#ffffff 0%,#f4efe3 42%,#e6dcc6 100%);
+    box-shadow:inset 0 -14px 30px rgba(31,33,31,.10),0 34px 60px -22px rgba(31,33,31,.34),0 0 0 1px rgba(214,177,94,.35)}
+  .bowl-rim{position:absolute;left:-4%;right:-4%;top:-9px;height:20px;border-radius:50%;
+    background:linear-gradient(90deg,#e9d9b6,#f6ecd8 30%,#d6b15e 50%,#f6ecd8 70%,#e9d9b6);
+    box-shadow:0 2px 8px rgba(31,33,31,.16)}
+  .bowl-fill{position:absolute;left:6%;right:6%;bottom:9%;height:44%;border-radius:0 0 48% 48%/0 0 100% 100%;
+    background:linear-gradient(180deg,#d9c19a,#c2a375 60%,#ab8b5c);opacity:0;transition:opacity .25s}
+  .steam{position:absolute;left:50%;top:-14%;transform:translateX(-50%);width:56%;height:60%;pointer-events:none;z-index:1}
+  .steam i{position:absolute;bottom:0;width:12px;height:100%;border-radius:50%;filter:blur(9px);
+    background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.62) 45%,rgba(255,255,255,0) 100%);
+    opacity:0;animation:steamUp 3.4s ease-in-out infinite}
+  .steam i:nth-child(1){left:18%;animation-delay:0s}
+  .steam i:nth-child(2){left:42%;height:82%;animation-delay:.7s}
+  .steam i:nth-child(3){left:66%;animation-delay:1.4s}
+  @keyframes steamUp{0%{opacity:0;transform:translateY(18px) scaleX(.8)}35%{opacity:.75}100%{opacity:0;transform:translateY(-46px) scaleX(1.25)}}
+  .drop{position:absolute;z-index:3;opacity:0;will-change:transform,opacity;pointer-events:none;filter:drop-shadow(0 12px 18px rgba(31,33,31,.22))}
+  .d-barley{width:34%;left:2%;top:-8%}
+  .d-almond{width:26%;right:0;top:2%}
+  .d-pist{width:24%;left:-6%;top:32%}
+  .d-walnut{width:22%;right:-4%;top:44%}
+  .d-pumpkin{width:20%;left:16%;top:-22%}
+  .asm-cap{position:absolute;left:5.2vw;bottom:7vh;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);z-index:4;display:flex;gap:1.2rem;align-items:center}
+  .asm-cap .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+
+  /* ---------- S4 SUNNAH (quiet dark) ---------- */
+  .sunnah{background:var(--emerald-2);color:var(--paper);padding:16vh 0 17vh;text-align:center;overflow:hidden}
+  .sunnah .orn{width:70px;height:70px;margin:0 auto 3.4rem;position:relative;opacity:.9}
+  .sunnah .orn svg{width:100%;height:100%}
+  .sunnah blockquote{font-family:"Cormorant Garamond",serif;font-weight:300;font-style:italic;
+    font-size:clamp(24px,3.6vw,52px);line-height:1.34;letter-spacing:-.015em;max-width:22ch;margin:0 auto;color:var(--paper)}
+  .sunnah blockquote .g{color:var(--gold)}
+  .sunnah cite{display:block;margin-top:2.6rem;font-family:"Inter",sans-serif;font-style:normal;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,248,242,.55)}
+  .sunnah .ctx{max-width:52ch;margin:3.2rem auto 0;font-size:clamp(12.5px,.95vw,14.5px);line-height:1.9;color:rgba(255,248,242,.55)}
+  .sunnah .ctx a{color:var(--gold);border-bottom:1px solid rgba(214,177,94,.4)}
+
+  /* ---------- S5 STICKY INGREDIENT CARDS ---------- */
+  .ingredients{background:var(--paper);padding:12vh 0 4vh}
+  .ing-head{display:flex;justify-content:space-between;align-items:flex-end;gap:3rem;flex-wrap:wrap;margin-bottom:5vh}
+  .stack{position:relative;width:min(1400px,100%);margin:0 auto;padding:0 5.2vw}
+  .card-slot{position:relative;height:74vh}
+  .card-slot:not(:last-child){margin-bottom:4vh}
+  .ing-card{position:sticky;top:12vh;display:grid;grid-template-columns:1.05fr .95fr;gap:3vw;align-items:center;
+    background:var(--sand);border:1px solid var(--line);border-radius:3px;padding:3.2rem 3.4rem;overflow:hidden;
+    box-shadow:0 -18px 40px -30px rgba(31,33,31,.5);will-change:transform}
+  .ing-card .ic-img{position:relative;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
+  .ing-card .ic-img img{width:82%;object-fit:contain;filter:drop-shadow(0 26px 34px rgba(31,33,31,.22))}
+  .ing-card .ic-txt .num{font-family:"Cormorant Garamond",serif;font-size:14px;letter-spacing:.2em;color:var(--gold);margin-bottom:.9rem;display:block}
+  .ing-card h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(28px,3.2vw,44px);color:var(--emerald);letter-spacing:-.01em;line-height:1.05}
+  .ing-card .lat{font-style:italic;font-size:13px;color:var(--gold);margin-top:.4rem;font-family:"Cormorant Garamond",serif}
+  .ing-card p{margin-top:1.2rem;font-size:14.5px;line-height:1.8;color:var(--ink-soft);max-width:40ch}
+  .ing-card .tag{margin-top:1.6rem;display:inline-block;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--emerald);border:1px solid var(--line);padding:.5rem .9rem;border-radius:2px}
+
+  /* ---------- S6 RITUAL 3 STEPS ---------- */
+  .ritual{background:var(--emerald);color:var(--paper);padding:14vh 0 15vh}
+  .ritual .wrap{position:relative}
+  .ritual .eyebrow{color:var(--gold-soft)}
+  .ritual h2{color:var(--paper)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4vw;margin-top:7vh}
+  .step-c{position:relative;padding-top:2.6rem;border-top:1px solid rgba(255,248,242,.2)}
+  .step-c .sn{font-family:"Cormorant Garamond",serif;font-size:clamp(54px,6vw,92px);line-height:.8;color:rgba(214,177,94,.28);font-weight:300;position:absolute;top:-.35em;left:0}
+  .step-c h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(20px,2vw,28px);color:var(--paper);margin-top:2.2rem;letter-spacing:.02em}
+  .step-c p{margin-top:.9rem;font-size:14px;line-height:1.8;color:rgba(255,248,242,.62);max-width:32ch}
+  .ritual .fine{margin-top:6vh;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,248,242,.4)}
+
+  /* ---------- S7 THE RANGE ---------- */
+  .range{background:var(--sand);padding:13vh 0 14vh}
+  .range-head{display:flex;justify-content:space-between;align-items:flex-end;gap:3rem;flex-wrap:wrap;margin-bottom:6vh}
+  .packs{display:grid;grid-template-columns:repeat(3,1fr);gap:2vw}
+  .pack{background:var(--paper);border:1px solid var(--line);border-radius:3px;overflow:hidden;position:relative;
+    transition:transform .5s cubic-bezier(.65,0,.35,1),box-shadow .5s;will-change:transform}
+  .pack:hover{transform:translateY(-8px);box-shadow:0 30px 60px -34px rgba(31,33,31,.5)}
+  .pack .pimg{aspect-ratio:4/3;overflow:hidden;background:var(--sand)}
+  .pack .pimg img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.65,0,.35,1)}
+  .pack:hover .pimg img{transform:scale(1.06)}
+  .pack .off{position:absolute;top:14px;left:14px;background:var(--emerald);color:var(--paper);font-size:9px;letter-spacing:.2em;padding:.42rem .8rem;border-radius:2px;text-transform:uppercase;z-index:2}
+  .pack .pbody{padding:1.7rem 1.7rem 2rem}
+  .pack .pbody h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:19px;line-height:1.25;color:var(--emerald);letter-spacing:.01em;min-height:2.6em}
+  .pack .price{margin-top:1.1rem;display:flex;align-items:baseline;gap:.7rem}
+  .pack .price b{font-family:"Cormorant Garamond",serif;font-size:30px;font-weight:500;color:var(--emerald)}
+  .pack .price s{font-size:13px;color:var(--ink-soft);opacity:.65}
+  .pack .pbody .plink{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.4rem;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--emerald);border-bottom:1px solid var(--gold);padding-bottom:.35rem;transition:gap .3s}
+  .pack:hover .plink{gap:.9rem}
+  .pack .fine{margin-top:.9rem;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);opacity:.6}
+
+  /* ---------- S8 FIRST HUNDRED ---------- */
+  .hundred{position:relative;background:var(--paper);padding:16vh 0;overflow:hidden}
+  .hundred .bgimg{position:absolute;inset:0;opacity:.16}
+  .hundred .bgimg img{width:100%;height:100%;object-fit:cover}
+  .hundred .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:5vw;align-items:center}
+  .hundred h2{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(30px,4.2vw,60px);line-height:1.06;color:var(--emerald);letter-spacing:-.02em;max-width:18ch}
+  .hundred p{margin-top:1.7rem;font-size:clamp(14px,1.05vw,16.5px);line-height:1.8;color:var(--ink-soft);max-width:46ch}
+  .hundred .invite{margin-top:2.6rem;border:1px solid var(--gold);border-radius:3px;padding:2rem 2.2rem;background:rgba(255,248,242,.7);backdrop-filter:blur(6px)}
+  .hundred .invite .lab{font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;display:block}
+  .hundred .invite h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:22px;color:var(--emerald);line-height:1.3}
+  .hundred .invite p{margin-top:.8rem;font-size:13.5px;line-height:1.7;color:var(--ink-soft);max-width:36ch}
+  .hundred .invite .btn{margin-top:1.4rem}
+  .hundred .imgside{position:relative;aspect-ratio:4/5;border-radius:3px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(31,33,31,.55)}
+  .hundred .imgside img{width:100%;height:100%;object-fit:cover}
+  .hundred .imgside .cap{position:absolute;left:0;right:0;bottom:0;padding:1.6rem;background:linear-gradient(0deg,rgba(11,61,46,.82),rgba(11,61,46,0));color:var(--paper);font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+
+  /* ---------- S9 FINALE ---------- */
+  .finale{background:var(--emerald);color:var(--paper);padding:18vh 0 0;text-align:center;position:relative;overflow:hidden}
+  .finale .bg{position:absolute;inset:0;opacity:.2}
+  .finale .bg img{width:100%;height:100%;object-fit:cover}
+  .finale .wrap{position:relative;z-index:2;max-width:900px}
+  .finale .eyebrow{color:var(--gold-soft)}
+  .finale h2{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(34px,5.6vw,86px);line-height:1.02;letter-spacing:-.025em;color:var(--paper)}
+  .finale h2 em{font-style:italic;color:var(--gold)}
+  .finale p{margin:2.2rem auto 0;max-width:44ch;font-size:clamp(13.5px,1vw,16px);line-height:1.8;color:rgba(255,248,242,.62)}
+  .finale .btn{margin-top:3rem}
+  .finale .btn-gold{background:var(--gold);color:var(--emerald);border-color:var(--gold)}
+  .finale .btn-gold:hover{background:var(--paper);color:var(--emerald);transform:translateY(-2px)}
+
+  footer{background:var(--emerald-2);color:var(--paper);padding:8vh 0 4vh;margin-top:0}
+  .frow{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:3vw;padding-bottom:6vh;border-bottom:1px solid rgba(255,248,242,.14)}
+  footer h4{font-family:"Cormorant Garamond",serif;font-size:20px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:1.4rem;color:var(--paper)}
+  footer h4 b{color:var(--gold)}
+  footer .fcol h5{font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,248,242,.45);margin-bottom:1.2rem}
+  footer .fcol a{display:block;font-size:13px;color:rgba(255,248,242,.72);margin-bottom:.65rem;transition:color .25s}
+  footer .fcol a:hover{color:var(--gold)}
+  footer .fcol p{font-size:13px;line-height:1.8;color:rgba(255,248,242,.6);max-width:34ch}
+  .fbot{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;padding-top:3vh;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,248,242,.35)}
+  .fbot a{color:rgba(255,248,242,.5)}
+
+  /* ---------- REVEAL UTIL (progressive enhancement) ----------
+     Default = VISIBLE. Only when JS confirms the engine is alive do we hide.
+     This guarantees the page is always readable even if libs fail. */
+  .rv{opacity:1;transform:none}
+  html.js-ready .rv{opacity:0;transform:translateY(26px);transition:opacity .95s cubic-bezier(.22,.61,.36,1),transform .95s cubic-bezier(.22,.61,.36,1)}
+  html.js-ready .rv.in{opacity:1;transform:none}
+  /* hero headline lines: visible by default, masked only when js-ready */
+  .hero h1 .l span{transform:none}
+  html.js-ready .hero h1 .l span{transform:translateY(112%);transition:transform 1.05s cubic-bezier(.22,.61,.36,1)}
+  html.js-ready .hero h1 .l.in span{transform:translateY(0)}
+  /* hero stats */
+  .hstat{opacity:1;transform:none}
+  html.js-ready .hstat{opacity:0;transform:translateY(12px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
+  html.js-ready .hstat.in{opacity:1;transform:none}
+  /* hairline */
+  .kicker .ln{transform:none}
+  html.js-ready .kicker .ln{transform:scaleX(0);transition:transform 1.1s cubic-bezier(.65,0,.35,1)}
+  html.js-ready .kicker .ln.in{transform:scaleX(1)}
+  /* ingredient card being covered */
+  html.js-ready .ing-card{transition:opacity .5s ease,transform .5s cubic-bezier(.22,.61,.36,1)}
+  html.js-ready .ing-card.covered{opacity:.12;transform:scale(.94) translateY(-2%)}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:1024px){
+    .asm-grid{grid-template-columns:1fr;gap:2vh;padding-top:9vh}
+    .asm-visual{height:44vh;order:2}
+    .bowl{width:min(300px,52vw)}
+    .ing-card{grid-template-columns:1fr;gap:1.4rem;padding:2.2rem 1.6rem;top:9vh}
+    .ing-card .ic-img{aspect-ratio:16/10}
+    .ing-card .ic-img img{width:56%}
+    .card-slot{height:78vh}
+    .steps{grid-template-columns:1fr;gap:4vh}
+    .packs{grid-template-columns:1fr;gap:2.4vh}
+    .hundred .wrap{grid-template-columns:1fr;gap:4vh}
+    .hundred .imgside{aspect-ratio:4/3;order:-1}
+    .frow{grid-template-columns:1fr 1fr;gap:4vh}
+    nav{display:none}
+    .burger{display:block}
+    .hero-stats{gap:1.6rem;bottom:3.5vh}
+    .hero-scroll{display:none}
+  }
+  @media(max-width:600px){
+    .hero h1{font-size:clamp(34px,10.5vw,56px)}
+    .hero-stats{bottom:2.5vh;gap:1.2rem}
+    .hstat b{font-size:20px}
+    .ing-head,.range-head{gap:1.2rem}
+    .frow{grid-template-columns:1fr}
+    .sunnah{padding:12vh 0}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .rv{opacity:1;transform:none}
+    .hero h1 .l span{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="pre">
+  <div class="pl">Livewell</div>
+  <div class="bar"><i></i></div>
+</div>
+
+<!-- NAV -->
+<header id="hdr">
+  <a href="#" class="logo">Live<b>well</b></a>
+  <nav>
+    <a href="#grain">The Grain</a>
+    <a href="#ritual">The Ritual</a>
+    <a href="#range">The Range</a>
+    <a href="#story">Our Story</a>
+    <a href="#range" class="navcta">Shop Now</a>
+  </nav>
+  <div class="burger" id="burger"><i></i><i></i><i></i></div>
+</header>
+
+<!-- S1 HERO -->
+<section class="hero" id="top">
+  <div class="hero-media" id="heroMedia">
+    <img src="assets/life-2.webp" alt="Livewell Talbina Royale — a hand holding a sachet over a steaming bowl" />
+  </div>
+  <div class="hero-inner">
+    <div class="kicker"><span class="ln" id="heroLn"></span>Sunnah Inspired Nutrition</div>
+    <h1>
+      <span class="l"><span>Ancient Wisdom.</span></span>
+      <span class="l"><span><em>Modern</em> Nourishment.</span></span>
+    </h1>
+    <p class="hero-sub">Traditional barley-based nourishment made with barley, almonds and pistachios — a warm, comforting bowl for the pace of now.</p>
+    <div class="hero-cta">
+      <a href="#range" class="btn btn-solid">Shop Now <span class="ar">→</span></a>
+      <a href="#grain" class="btn btn-line">Discover Talbina</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat"><b>15</b>Sachets / Box</div>
+    <div class="hstat"><b>16g</b>Per Serving</div>
+    <div class="hstat"><b>3</b>Simple Ingredients</div>
+    <div class="hstat"><b>0</b>Preservatives</div>
+  </div>
+  <div class="hero-scroll">Scroll <span class="rl"><i></i></span></div>
+</section>
+
+<!-- S2 THE GRAIN -->
+<section class="grain" id="grain">
+  <div class="grain-stage">
+    <div class="grain-bg"><img src="assets/product-4.webp" alt="" /></div>
+    <div class="grain-glow"></div>
+    <div class="grain-orn" id="orn"></div>
+    <div class="grain-inner">
+      <div class="gnum" id="gnum">1,400<sup>YRS</sup></div>
+      <h2>Before “functional food” was a category, this bowl was already a ritual.</h2>
+      <p>Whole barley, gently cooked. A comfort prepared for the ill, the grieving, the tired — the oldest nourishment on the shortest list. We didn’t invent it. We rebuilt it for a life that won’t slow down.</p>
+    </div>
+  </div>
+</section>
+
+<!-- S3 BOWL ASSEMBLY -->
+<section class="assemble" id="assemble">
+  <div class="asm-stage">
+    <div class="asm-grid">
+      <div class="asm-copy" id="asmCopy">
+        <div class="step on" data-step="0">
+          <span class="n">01 — The Base</span>
+          <h3>Barley, whole and unhurried.</h3>
+          <p>Stone-milled whole barley — bran intact. The grain that holds the bowl together, and the reason it feels like a meal instead of a supplement.</p>
+        </div>
+        <div class="step" data-step="1">
+          <span class="n">02 — The Blend</span>
+          <h3>Almonds, pistachios, walnuts.</h3>
+          <p>Three nuts, nothing synthetic. Real texture, real fats, real reason to chew. This is where a porridge becomes a ritual.</p>
+        </div>
+        <div class="step" data-step="2">
+          <span class="n">03 — The Pour</span>
+          <h3>Milk, heat, five minutes.</h3>
+          <p>One sachet. 200 ml milk. Heat and stir. No blender, no shaker, no label to decode. Steam rising is the whole point.</p>
+        </div>
+      </div>
+      <div class="asm-visual" id="asmVisual">
+        <div class="steam" id="steam"><i></i><i></i><i></i></div>
+        <div class="bowl" id="bowl">
+          <div class="bowl-fill" id="bowlFill"></div>
+          <div class="bowl-rim"></div>
+          <div class="bowl-body"></div>
+        </div>
+        <img class="drop d-barley" src="assets/ing-barley.webp" alt="" />
+        <img class="drop d-almond" src="assets/ing-almond.webp" alt="" />
+        <img class="drop d-pist" src="assets/ing-pistachio.webp" alt="" />
+        <img class="drop d-walnut" src="assets/ing-walnut.webp" alt="" />
+        <img class="drop d-pumpkin" src="assets/ing-pumpkin.webp" alt="" />
+      </div>
+    </div>
+    <div class="asm-cap"><span class="dot"></span>Scroll to build the bowl</div>
+  </div>
+</section>
+
+<!-- S4 SUNNAH -->
+<section class="sunnah" id="sunnah">
+  <div class="wrap">
+    <div class="orn rv">
+      <svg viewBox="0 0 100 100" fill="none" stroke="#D6B15E" stroke-width="1">
+        <circle cx="50" cy="50" r="34"/><circle cx="50" cy="50" r="26"/>
+        <path d="M50 16 L50 84 M16 50 L84 50"/>
+        <path d="M50 24 L76 50 L50 76 L24 50 Z"/>
+        <circle cx="50" cy="50" r="3" fill="#D6B15E" stroke="none"/>
+      </svg>
+    </div>
+    <blockquote class="rv">“The Talbina <span class="g">soothes the heart</span> of the patient and relieves some of his sorrow.”</blockquote>
+    <cite class="rv">— Sahih al-Bukhari 5417</cite>
+    <p class="ctx rv">Talbina is described in narrations in connection with comfort during illness and grief. This is shared as religious and historical context, not medical advice. <a href="https://sunnah.com/bukhari:5417" target="_blank" rel="noopener">Read the reference</a>.</p>
+  </div>
+</section>
+
+<!-- S5 STICKY INGREDIENT CARDS -->
+<section class="ingredients" id="ingredients">
+  <div class="wrap ing-head">
+    <div>
+      <span class="eyebrow rv">· What’s Inside ·</span>
+      <h2 class="big rv">Simple ingredients.<br/>Nothing to explain.</h2>
+    </div>
+    <p class="lead rv">Five real ingredients and one sachet. No gums, no colours, no “flavour system.” If it isn’t on this list, it isn’t in the bowl.</p>
+  </div>
+  <div class="stack" id="stack">
+    <div class="card-slot">
+      <article class="ing-card">
+        <div class="ic-img"><img src="assets/ing-barley.webp" alt="Whole barley" /></div>
+        <div class="ic-txt">
+          <span class="num">01 / 05</span>
+          <h3>Barley</h3>
+          <div class="lat">Hordeum vulgare</div>
+          <p>Whole grain, bran intact. The foundation of Talbina and the reason the bowl holds its warmth all the way to the last spoon.</p>
+          <span class="tag">Whole Grain</span>
+        </div>
+      </article>
+    </div>
+    <div class="card-slot">
+      <article class="ing-card">
+        <div class="ic-img"><img src="assets/ing-almond.webp" alt="Almonds" /></div>
+        <div class="ic-txt">
+          <span class="num">02 / 05</span>
+          <h3>Almonds</h3>
+          <div class="lat">Prunus dulcis</div>
+          <p>Ground into the blend for body and a quiet sweetness. Real fat and real texture — the difference you notice in the first spoon.</p>
+          <span class="tag">Premium Nut</span>
+        </div>
+      </article>
+    </div>
+    <div class="card-slot">
+      <article class="ing-card">
+        <div class="ic-img"><img src="assets/ing-pistachio.webp" alt="Pistachios" /></div>
+        <div class="ic-txt">
+          <span class="num">03 / 05</span>
+          <h3>Pistachios</h3>
+          <div class="lat">Pistacia vera</div>
+          <p>The green note. Lifts the bowl from plain porridge into something you’d order in a café — without the café price.</p>
+          <span class="tag">Premium Nut</span>
+        </div>
+      </article>
+    </div>
+    <div class="card-slot">
+      <article class="ing-card">
+        <div class="ic-img"><img src="assets/ing-walnut.webp" alt="Walnuts" /></div>
+        <div class="ic-txt">
+          <span class="num">04 / 05</span>
+          <h3>Walnuts</h3>
+          <div class="lat">Juglans regia</div>
+          <p>Cold-pressed flavour, deeply toasted. Adds the savoury edge that keeps a sweet bowl from tipping over into dessert.</p>
+          <span class="tag">Cold Pressed</span>
+        </div>
+      </article>
+    </div>
+    <div class="card-slot">
+      <article class="ing-card">
+        <div class="ic-img"><img src="assets/ing-pumpkin.webp" alt="Pumpkin seeds" /></div>
+        <div class="ic-txt">
+          <span class="num">05 / 05</span>
+          <h3>Pumpkin Seed</h3>
+          <div class="lat">Cucurbita pepo</div>
+          <p>The finishing scatter. Crunch, minerals, and a little green bite that makes the last spoon as good as the first.</p>
+          <span class="tag">Finishing Touch</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- S6 RITUAL -->
+<section class="ritual" id="ritual">
+  <div class="wrap">
+    <span class="eyebrow rv">· The Ritual ·</span>
+    <h2 class="big rv" style="max-width:20ch">Your comforting bowl in three steps.</h2>
+    <div class="steps">
+      <div class="step-c rv">
+        <span class="sn">01</span>
+        <h3>Open a sachet</h3>
+        <p>Empty one 16 g sachet into a saucepan. No scooping, no measuring, no half-used bag going stale.</p>
+      </div>
+      <div class="step-c rv">
+        <span class="sn">02</span>
+        <h3>Add 200 ml milk</h3>
+        <p>Whole milk, or water if you prefer. Stir once so the barley doesn’t catch on the base.</p>
+      </div>
+      <div class="step-c rv">
+        <span class="sn">03</span>
+        <h3>Heat, stir &amp; serve</h3>
+        <p>Five to seven minutes on a low flame, stirring occasionally. Top with dates, honey, or nothing at all.</p>
+      </div>
+    </div>
+    <p class="fine rv">Morning start · Busy days · Evening comfort · Your way</p>
+  </div>
+</section>
+
+<!-- S7 THE RANGE -->
+<section class="range" id="range">
+  <div class="wrap range-head">
+    <div>
+      <span class="eyebrow rv">· The Range ·</span>
+      <h2 class="big rv">Nourishment for<br/>every routine.</h2>
+    </div>
+    <p class="lead rv">One box is fifteen mornings. Two boxes get you through the month. Three is how the habit actually sticks.</p>
+  </div>
+  <div class="wrap">
+    <div class="packs">
+      <article class="pack rv">
+        <div class="off">22% Off</div>
+        <div class="pimg"><img src="assets/product-2.webp" alt="Talbina Royale single box" /></div>
+        <div class="pbody">
+          <h3>Talbina Royale — Premium Sachet Edition</h3>
+          <div class="price"><b>₹350</b><s>₹450</s></div>
+          <div class="fine">15 sachets · 16 g each</div>
+          <a class="plink" href="https://livewellnourish.com/product/livewell-talbina-royale-premium-sachet-edition/" target="_blank" rel="noopener">View Product →</a>
+        </div>
+      </article>
+      <article class="pack rv">
+        <div class="off">33% Off</div>
+        <div class="pimg"><img src="assets/product-3.webp" alt="Talbina Royale two box" /></div>
+        <div class="pbody">
+          <h3>Talbina Royale — Premium Sachet Edition — 2 Box</h3>
+          <div class="price"><b>₹599</b><s>₹900</s></div>
+          <div class="fine">30 sachets · 16 g each</div>
+          <a class="plink" href="https://livewellnourish.com/product/livewell-talbina-royale-premium-sachet-edition/" target="_blank" rel="noopener">View Product →</a>
+        </div>
+      </article>
+      <article class="pack rv">
+        <div class="off">40% Off</div>
+        <div class="pimg"><img src="assets/product-4.webp" alt="Talbina Royale three box" /></div>
+        <div class="pbody">
+          <h3>Talbina Royale — Premium Sachet Edition — 3 Box</h3>
+          <div class="price"><b>₹799</b><s>₹1350</s></div>
+          <div class="fine">45 sachets · 16 g each</div>
+          <a class="plink" href="https://livewellnourish.com/product/livewell-talbina-royale-premium-sachet-edition/" target="_blank" rel="noopener">View Product →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- S8 FIRST HUNDRED -->
+<section class="hundred" id="story">
+  <div class="bgimg"><img src="assets/life-2.webp" alt="" /></div>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow rv">· The First Hundred ·</span>
+      <h2 class="rv">We’d rather earn a hundred real bowls than a thousand fake reviews.</h2>
+      <p class="rv">Livewell is new. We won’t borrow testimonials or invent a legacy. The first hundred households to make this bowl part of their morning get it at founding price — and we’ll ask what they honestly thought.</p>
+      <div class="invite rv">
+        <span class="lab">Founding Household</span>
+        <h3>Take the 3-box ritual at the 2-box price.</h3>
+        <p>Forty-five mornings, delivered. Tell us what worked and what didn’t — we read every reply.</p>
+        <a href="https://livewellnourish.com/product/livewell-talbina-royale-premium-sachet-edition/" target="_blank" rel="noopener" class="btn btn-solid">Claim Founding Price <span class="ar">→</span></a>
+      </div>
+    </div>
+    <div class="imgside rv">
+      <img src="assets/life-3.webp" alt="Livewell Talbina in a morning routine" />
+      <div class="cap">The bowl that remembers</div>
+    </div>
+  </div>
+</section>
+
+<!-- S9 FINALE -->
+<section class="finale" id="finale">
+  <div class="bg"><img src="assets/product-1.webp" alt="" /></div>
+  <div class="wrap">
+    <span class="eyebrow rv">· Begin ·</span>
+    <h2 class="rv">Ancient wisdom.<br/><em>Modern</em> nourishment.</h2>
+    <p class="rv">One sachet. Five minutes. A bowl that has been comforting people for fourteen centuries — finally built for the way you actually live.</p>
+    <a href="https://livewellnourish.com/product/livewell-talbina-royale-premium-sachet-edition/" target="_blank" rel="noopener" class="btn btn-gold">Shop Talbina Royale <span class="ar">→</span></a>
+  </div>
+  <footer>
+    <div class="wrap">
+      <div class="frow">
+        <div>
+          <h4>Live<b>well</b></h4>
+          <p style="font-size:13px;line-height:1.8;color:rgba(255,248,242,.6);max-width:30ch">Thoughtful everyday nourishment inspired by tradition and made for modern routines.</p>
+        </div>
+        <div class="fcol">
+          <h5>Explore</h5>
+          <a href="#grain">The Grain</a>
+          <a href="#ritual">The Ritual</a>
+          <a href="#range">The Range</a>
+          <a href="#story">Our Story</a>
+        </div>
+        <div class="fcol">
+          <h5>Support</h5>
+          <a href="https://livewellnourish.com/faq/" target="_blank" rel="noopener">FAQ</a>
+          <a href="https://livewellnourish.com/contact/" target="_blank" rel="noopener">Contact</a>
+          <a href="mailto:thagyaanas@gmail.com">thagyaanas@gmail.com</a>
+        </div>
+        <div class="fcol">
+          <h5>Sources</h5>
+          <a href="https://sunnah.com/bukhari:5417" target="_blank" rel="noopener">Sahih al-Bukhari 5417</a>
+          <a href="https://sunnah.com/muslim:2216" target="_blank" rel="noopener">Sahih Muslim 2216</a>
+          <p style="margin-top:.9rem;font-size:11px;line-height:1.7;color:rgba(255,248,242,.4)">Religious and historical context only — not medical advice.</p>
+        </div>
+      </div>
+      <div class="fbot">
+        <span>© <span id="yr">2026</span> Livewell Nourish</span>
+        <span>Barley · Almonds · Pistachios</span>
+      </div>
+    </div>
+  </footer>
+</section>
+
+<script src="assets/lib/lenis.min.js"></script>
+<script src="assets/lib/motion.min.js"></script>
+<script>
+(function(){
+  "use strict";
+  var reduce = false;
+  try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch(e){}
+
+  /* ---------- preloader ---------- */
+  var pre = document.getElementById("pre");
+  function killPre(){ if(pre){ pre.classList.add("gone"); setTimeout(function(){ pre.style.display="none"; }, 950); } }
+  window.addEventListener("load", function(){ setTimeout(killPre, 1200); });
+  setTimeout(killPre, 3500);
+
+  var yr = document.getElementById("yr"); if(yr) yr.textContent = new Date().getFullYear();
+
+  /* ---------- header solid state ---------- */
+  var hdr = document.getElementById("hdr");
+  var tk1 = false;
+  function navState(){
+    if(hdr){ if((window.scrollY||window.pageYOffset||0) > 40) hdr.classList.add("solid"); else hdr.classList.remove("solid"); }
+    tk1 = false;
+  }
+  window.addEventListener("scroll", function(){ if(!tk1){ tk1 = true; requestAnimationFrame(navState); } }, {passive:true});
+  navState();
+
+  /* ---------- burger ---------- */
+  var burger = document.getElementById("burger");
+  if(burger){
+    burger.addEventListener("click", function(){
+      var nav = document.querySelector("nav");
+      var open = document.body.classList.toggle("mnav");
+      if(open){
+        nav.style.cssText = "display:flex;position:fixed;inset:0;background:#FFF8F2;flex-direction:column;justify-content:center;gap:2.2rem;z-index:950;padding:2rem";
+        document.querySelectorAll("nav a").forEach(function(a){ a.style.color = "#0B3D2E"; a.style.fontSize = "15px"; });
+      } else { nav.style.cssText = ""; }
+    });
+  }
+
+  /* ---------- smooth scroll (guarded) ---------- */
+  var lenis = null;
+  try {
+    if(window.Lenis && !reduce){
+      lenis = new window.Lenis({duration:1.15, smoothWheel:true, easing:function(t){ return Math.min(1, 1.001 - Math.pow(2, -10*t)); }});
+      var raf = function(t){ lenis.raf(t); requestAnimationFrame(raf); };
+      requestAnimationFrame(raf);
+    }
+  } catch(e){ lenis = null; }
+
+  /* ---------- helpers ---------- */
+  function band(p,a,b){ return Math.max(0, Math.min(1, (p-a)/(b-a))); }
+  function ease(t){ return t*t*(3-2*t); }
+  var revEls = Array.prototype.slice.call(document.querySelectorAll(".rv"));
+  var hstats = Array.prototype.slice.call(document.querySelectorAll(".hstat"));
+  var hlines = Array.prototype.slice.call(document.querySelectorAll(".hero h1 .l"));
+  var hln = document.getElementById("heroLn");
+
+  function revealAll(){
+    revEls.forEach(function(el){ el.classList.add("in"); });
+    hstats.forEach(function(el){ el.classList.add("in"); });
+    hlines.forEach(function(el){ el.classList.add("in"); });
+    if(hln) hln.classList.add("in");
+    var hs = document.querySelector(".hero-sub"); if(hs) hs.classList.add("in");
+    document.querySelectorAll(".hero-cta .btn").forEach(function(b){ b.classList.add("in"); });
+    document.querySelectorAll(".ing-card").forEach(function(c){ c.classList.remove("covered"); });
+  }
+
+  /* ---------- REVEALS: native IntersectionObserver (bulletproof) ---------- */
+  var hasIO = ("IntersectionObserver" in window);
+  if(!reduce && hasIO){
+    document.documentElement.classList.add("js-ready");
+
+    /* hero staged entrance — pure CSS transitions */
+    hlines.forEach(function(el,i){ setTimeout(function(){ el.classList.add("in"); }, 380 + i*95); });
+    if(hln) setTimeout(function(){ hln.classList.add("in"); }, 560);
+    var hs0 = document.querySelector(".hero-sub"); if(hs0) setTimeout(function(){ hs0.classList.add("in"); }, 820);
+    document.querySelectorAll(".hero-cta .btn").forEach(function(b,i){ setTimeout(function(){ b.classList.add("in"); }, 980 + i*90); });
+    hstats.forEach(function(el,i){ setTimeout(function(){ el.classList.add("in"); }, 1150 + i*80); });
+
+    /* scroll reveals */
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, {rootMargin:"0px 0px -6% 0px", threshold:0.12});
+    revEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealAll();
+  }
+
+  /* ---------- SCROLL-LINKED ENGINE (native scroll + rAF) ---------- */
+  var heroMedia  = document.getElementById("heroMedia");
+  var heroInner  = document.querySelector(".hero-inner");
+  var orn        = document.getElementById("orn");
+  var grainSec   = document.getElementById("grain");
+  var asmSec     = document.getElementById("assemble");
+  var fill       = document.getElementById("bowlFill");
+  var steam      = document.getElementById("steam");
+  var bowlEl     = document.getElementById("bowl");
+  var steps      = document.querySelectorAll("#asmCopy .step");
+  var gnum       = document.getElementById("gnum");
+  var cards      = Array.prototype.slice.call(document.querySelectorAll(".ing-card"));
+  var slots      = Array.prototype.slice.call(document.querySelectorAll(".card-slot"));
+  var drops = {
+    barley : document.querySelector(".d-barley"),
+    almond : document.querySelector(".d-almond"),
+    pist   : document.querySelector(".d-pist"),
+    walnut : document.querySelector(".d-walnut"),
+    pumpkin: document.querySelector(".d-pumpkin")
+  };
+  var counted = false;
+
+  function countUp(){
+    if(!gnum) return;
+    var target = 1400, t0 = performance.now(), dur = 1900;
+    function tick(t){
+      var k = Math.min(1, (t-t0)/dur);
+      var e = 1 - Math.pow(1-k, 3);
+      gnum.innerHTML = Math.round(target*e).toLocaleString("en-US") + '<sup>YRS</sup>';
+      if(k < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function frame(){
+    var vh = window.innerHeight || 1;
+    var y  = window.scrollY || window.pageYOffset || 0;
+
+    /* hero parallax */
+    if(heroMedia && !reduce){
+      var hp = Math.max(0, Math.min(1, y / vh));
+      heroMedia.style.transform = "scale(" + (1 + hp*0.14) + ") translateY(" + (hp*7) + "%)";
+      if(heroInner){
+        heroInner.style.opacity = String(Math.max(0, 1 - hp*1.6));
+        heroInner.style.transform = "translateY(" + (hp*-40) + "px)";
+      }
+    }
+
+    /* grain: ornament rotation + counter trigger */
+    if(grainSec){
+      var gr = grainSec.getBoundingClientRect();
+      var gp = Math.max(0, Math.min(1, (vh - gr.top) / (vh + gr.height)));
+      if(orn && !reduce) orn.style.transform = "translate(-50%,-50%) rotate(" + (gp*34) + "deg)";
+      if(!counted && gnum){
+        var nr = gnum.getBoundingClientRect();
+        if(nr.top < vh*0.78){ counted = true; countUp(); }
+      }
+    }
+
+    /* bowl assembly — pinned scene progress */
+    if(asmSec && steps.length){
+      var ar = asmSec.getBoundingClientRect();
+      var total = ar.height - vh;
+      var p = total > 0 ? Math.max(0, Math.min(1, (-ar.top) / total)) : 0;
+      var idx = p < .3 ? 0 : (p < .64 ? 1 : 2);
+      steps.forEach(function(s,i){ s.classList.toggle("on", i === idx); });
+
+      var t1 = ease(band(p,.06,.30));
+      if(drops.barley){
+        drops.barley.style.opacity = String(Math.min(1, t1*2.2));
+        drops.barley.style.transform = "translateY(" + ((1-t1)*-120) + "px) scale(" + (1.25 - t1*.35) + ") rotate(" + ((1-t1)*-18) + "deg)";
+      }
+      var t2 = ease(band(p,.24,.46));
+      if(drops.almond){
+        drops.almond.style.opacity = String(Math.min(1, t2*2.2));
+        drops.almond.style.transform = "translateY(" + ((1-t2)*-150) + "px) scale(" + (1.2 - t2*.3) + ") rotate(" + ((1-t2)*22) + "deg)";
+      }
+      var t3 = ease(band(p,.40,.60));
+      if(drops.pist){
+        drops.pist.style.opacity = String(Math.min(1, t3*2.2));
+        drops.pist.style.transform = "translateY(" + ((1-t3)*-140) + "px) scale(" + (1.2 - t3*.3) + ") rotate(" + ((1-t3)*-26) + "deg)";
+      }
+      var t4 = ease(band(p,.54,.72));
+      if(drops.walnut){
+        drops.walnut.style.opacity = String(Math.min(1, t4*2.2));
+        drops.walnut.style.transform = "translateY(" + ((1-t4)*-130) + "px) scale(" + (1.18 - t4*.28) + ") rotate(" + ((1-t4)*20) + "deg)";
+      }
+      var t5 = ease(band(p,.66,.84));
+      if(drops.pumpkin){
+        drops.pumpkin.style.opacity = String(Math.min(1, t5*2.2));
+        drops.pumpkin.style.transform = "translateY(" + ((1-t5)*-170) + "px) scale(" + (1.2 - t5*.3) + ") rotate(" + ((1-t5)*-30) + "deg)";
+      }
+      var t6 = band(p,.78,.96);
+      if(fill) fill.style.opacity = String(t6*.95);
+      if(steam) steam.style.opacity = String(band(p,.86,1));
+      if(bowlEl && !reduce){
+        bowlEl.style.transform = "scale(" + (1 + Math.sin(p*Math.PI)*.045) + ") translateY(" + (-p*10) + "px)";
+      }
+    }
+
+    /* ingredient sticky cards — mark the one being covered so they never merge */
+    if(cards.length){
+      for(var i=0;i<slots.length;i++){
+        var sr = slots[i].getBoundingClientRect();
+        var c  = cards[i];
+        if(!c) continue;
+        var covered = sr.bottom < (vh*0.12 + c.offsetHeight*0.55);
+        c.classList.toggle("covered", covered);
+      }
+    }
+
+    tk2 = false;
+  }
+  /* rAF loop — guaranteed to run even when Lenis swallows native scroll events */
+  var lastY = -1;
+  function loop(){
+    var y = window.scrollY || window.pageYOffset || 0;
+    if(y !== lastY){
+      lastY = y;
+      try { frame(); } catch(e){}
+      try { navState(); } catch(e){}
+    }
+    requestAnimationFrame(loop);
+  }
+  window.addEventListener("resize", function(){ try{ frame(); }catch(e){} });
+  try { frame(); } catch(e){}
+  requestAnimationFrame(loop);
+
+  /* ---------- magnetic buttons (optional, Motion only) ---------- */
+  try {
+    if(window.Motion && window.Motion.animate && !reduce && window.matchMedia("(pointer: fine)").matches){
+      var anim = window.Motion.animate;
+      document.querySelectorAll(".btn").forEach(function(b){
+        b.addEventListener("mousemove", function(ev){
+          var r = b.getBoundingClientRect();
+          anim(b, { x:(ev.clientX - r.left - r.width/2)*.12, y:(ev.clientY - r.top - r.height/2)*.18 },
+               {duration:.45, type:"spring", stiffness:260, damping:18});
+        });
+        b.addEventListener("mouseleave", function(){
+          anim(b, { x:0, y:0 }, {duration:.5, type:"spring", stiffness:220, damping:20});
+        });
+      });
+    }
+  } catch(e){}
+
+  /* ---------- watchdog: never leave content hidden ---------- */
+  setTimeout(function(){
+    var hidden = document.querySelectorAll(".rv:not(.in)");
+    if(hidden.length > 0){
+      /* only force if the user hasn't scrolled at all yet (IO failed to init) */
+      if((window.scrollY||0) < 5) revealAll();
+    }
+  }, 2600);
+})();
+
+</script>
+</body>
+</html>
